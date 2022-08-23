@@ -14,6 +14,11 @@
 		C0D0B9D428B53363001F4E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0D0B9D228B53363001F4E5B /* LaunchScreen.storyboard */; };
 		C0D0B9DC28B53BC5001F4E5B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0D0B9DB28B53BC5001F4E5B /* GoogleService-Info.plist */; };
 		C0D0B9DF28B53D75001F4E5B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C0D0B9DE28B53D75001F4E5B /* FirebaseAuth */; };
+		C0D0B9E228B54FD5001F4E5B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0B9E128B54FD5001F4E5B /* LoginView.swift */; };
+		C0D0B9E528B556D4001F4E5B /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C0D0B9E428B556D4001F4E5B /* IQKeyboardManagerSwift */; };
+		C0D0B9E828B55E14001F4E5B /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0B9E728B55E14001F4E5B /* RegistrationController.swift */; };
+		C0D0B9EA28B55E35001F4E5B /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0B9E928B55E35001F4E5B /* RegistrationView.swift */; };
+		C0D0B9EC28B563B7001F4E5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D0B9EB28B563B7001F4E5B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,10 @@
 		C0D0B9D328B53363001F4E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0D0B9D528B53363001F4E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D0B9DB28B53BC5001F4E5B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C0D0B9E128B54FD5001F4E5B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C0D0B9E728B55E14001F4E5B /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		C0D0B9E928B55E35001F4E5B /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		C0D0B9EB28B563B7001F4E5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0D0B9DF28B53D75001F4E5B /* FirebaseAuth in Frameworks */,
+				C0D0B9E528B556D4001F4E5B /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,13 +70,33 @@
 			children = (
 				C0D0B9C728B53360001F4E5B /* AppDelegate.swift */,
 				C0D0B9C928B53360001F4E5B /* SceneDelegate.swift */,
-				C0D0B9CB28B53360001F4E5B /* LoginController.swift */,
+				C0D0B9EB28B563B7001F4E5B /* ViewController.swift */,
+				C0D0B9E628B55DE5001F4E5B /* Registration */,
+				C0D0B9E028B54FA7001F4E5B /* Login */,
 				C0D0B9D028B53363001F4E5B /* Assets.xcassets */,
 				C0D0B9D228B53363001F4E5B /* LaunchScreen.storyboard */,
 				C0D0B9D528B53363001F4E5B /* Info.plist */,
 				C0D0B9DB28B53BC5001F4E5B /* GoogleService-Info.plist */,
 			);
 			path = "News App";
+			sourceTree = "<group>";
+		};
+		C0D0B9E028B54FA7001F4E5B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C0D0B9CB28B53360001F4E5B /* LoginController.swift */,
+				C0D0B9E128B54FD5001F4E5B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C0D0B9E628B55DE5001F4E5B /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				C0D0B9E728B55E14001F4E5B /* RegistrationController.swift */,
+				C0D0B9E928B55E35001F4E5B /* RegistrationView.swift */,
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +117,7 @@
 			name = "News App";
 			packageProductDependencies = (
 				C0D0B9DE28B53D75001F4E5B /* FirebaseAuth */,
+				C0D0B9E428B556D4001F4E5B /* IQKeyboardManagerSwift */,
 			);
 			productName = "News App";
 			productReference = C0D0B9C428B53360001F4E5B /* News App.app */;
@@ -118,6 +149,7 @@
 			mainGroup = C0D0B9BB28B53360001F4E5B;
 			packageReferences = (
 				C0D0B9DD28B53D75001F4E5B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C0D0B9E328B556D3001F4E5B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = C0D0B9C528B53360001F4E5B /* Products */;
 			projectDirPath = "";
@@ -148,6 +180,10 @@
 			files = (
 				C0D0B9CC28B53360001F4E5B /* LoginController.swift in Sources */,
 				C0D0B9C828B53360001F4E5B /* AppDelegate.swift in Sources */,
+				C0D0B9E228B54FD5001F4E5B /* LoginView.swift in Sources */,
+				C0D0B9EA28B55E35001F4E5B /* RegistrationView.swift in Sources */,
+				C0D0B9EC28B563B7001F4E5B /* ViewController.swift in Sources */,
+				C0D0B9E828B55E14001F4E5B /* RegistrationController.swift in Sources */,
 				C0D0B9CA28B53360001F4E5B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,8 +328,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -319,8 +356,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +404,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		C0D0B9E328B556D3001F4E5B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -373,6 +419,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C0D0B9DD28B53D75001F4E5B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		C0D0B9E428B556D4001F4E5B /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0D0B9E328B556D3001F4E5B /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
