@@ -14,6 +14,8 @@ class NewsController: UIViewController {
     
     private var articles = [Article]()
     
+    let refreshControl = UIRefreshControl()
+    
     override func loadView() {
         view = _view
     }
@@ -29,31 +31,48 @@ class NewsController: UIViewController {
                                                             action: #selector(rightItemHandler))
         
         _view.tableView.delegate = self
+        _view.tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlHandler), for: .valueChanged)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchTopStories()
     }
     
     private func fetchTopStories() {
         APICaller.shared.getTopStories { [weak self] result in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if self.refreshControl.isRefreshing {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+            
             switch result {
             case .success(let articles):
-                self?.articles = articles
-                self?._view.viewModels = articles.compactMap({
+                self.articles = articles
+                self._view.viewModels = articles.compactMap({
                     NewsViewModel(title: $0.title,
                                   subtitle: $0.description ?? "No description",
                                   imageURL: URL(string: $0.urlToImage ?? ""))
                 })
                 
                 DispatchQueue.main.async {
-                    self?._view.tableView.reloadData()
+                    self._view.tableView.reloadData()
                 }
             case .failure(let error): print(error)
             }
         }
-        print(_view.viewModels.count)
     }
     
     @objc func rightItemHandler() {
         navigationController?.pushViewController(SettingsController(), animated: true)
+    }
+    
+    @objc func refreshControlHandler() {
+        fetchTopStories()
     }
 }
 
