@@ -24,6 +24,8 @@ class RegistrationController: UIViewController {
         
         _view.continueButton.addTarget(self, action: #selector(registrationHandler), for: .primaryActionTriggered)
         _view.loginButton.addTarget(self, action: #selector(toLogin), for: .primaryActionTriggered)
+        _view.emailField.delegate = self
+        _view.passwordField.delegate = self
     }
     
     @objc func registrationHandler() {
@@ -45,5 +47,11 @@ class RegistrationController: UIViewController {
     
     @objc func toLogin() {
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension RegistrationController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
     }
 }

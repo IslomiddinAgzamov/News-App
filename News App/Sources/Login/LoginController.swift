@@ -33,6 +33,8 @@ class LoginController: UIViewController {
         
         _view.continueButton.addTarget(self, action: #selector(loginHandler), for: .primaryActionTriggered)
         _view.registrationButton.addTarget(self, action: #selector(toRegistration), for: .primaryActionTriggered)
+        _view.emailField.delegate = self
+        _view.passwordField.delegate = self
     }
     
     @objc func loginHandler() {
@@ -59,3 +61,8 @@ class LoginController: UIViewController {
     
 }
 
+extension LoginController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+    }
+}
