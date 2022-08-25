@@ -20,8 +20,10 @@ class RegistrationController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "News App"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.hidesBackButton = true
         
         _view.continueButton.addTarget(self, action: #selector(registrationHandler), for: .primaryActionTriggered)
+        _view.loginButton.addTarget(self, action: #selector(toLogin), for: .primaryActionTriggered)
     }
     
     @objc func registrationHandler() {
@@ -32,9 +34,14 @@ class RegistrationController: UIViewController {
                     print(e.localizedDescription)
                 } else {
                     self.navigationController?.pushViewController(NewsController(), animated: true)
+                    self._view.emailField.text = nil
+                    self._view.passwordField.text = nil
                 }
             }
         }
     }
-
+    
+    @objc func toLogin() {
+        navigationController?.popViewController(animated: true)
+    }
 }

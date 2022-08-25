@@ -1,13 +1,14 @@
 //
-//  RegistrationView.swift
+//  SettingsView.swift
 //  News App
 //
-//  Created by Islomiddin on 24/08/22.
+//  Created by Islomiddin on 25/08/22.
 //
 
 import UIKit
+import Firebase
 
-class RegistrationView: UIView {
+class SettingsView: UIView {
 
     let fieldStack: UIStackView = {
         let stack = UIStackView()
@@ -16,9 +17,9 @@ class RegistrationView: UIView {
         return stack
     }()
     
-    let registrationLabel: UILabel = {
+    let myProfileLabel: UILabel = {
         let label = UILabel()
-        label.text = "Registration"
+        label.text = "My Profile Info"
         label.font = .systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .black
         return label
@@ -26,7 +27,7 @@ class RegistrationView: UIView {
     
     let emailField: UITextField = {
         let field = UITextField()
-        field.placeholder = "Email"
+        field.placeholder = "Change Email"
         field.keyboardType = .emailAddress
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: field.frame.height))
         field.leftViewMode = .always
@@ -38,7 +39,7 @@ class RegistrationView: UIView {
     
     let passwordField: UITextField = {
         let field = UITextField()
-        field.placeholder = "Password"
+        field.placeholder = "Change Password"
         field.isSecureTextEntry = true
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: field.frame.height))
         field.leftViewMode = .always
@@ -48,29 +49,13 @@ class RegistrationView: UIView {
         return field
     }()
     
-    let buttonsStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 5
-        return stack
-    }()
-    
-    let continueButton: UIButton = {
+    let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .systemGreen
         button.tintColor = .white
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Save", for: .normal)
         button.contentHorizontalAlignment = .center
         button.layer.cornerRadius = 20
-        return button
-    }()
-    
-    let loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Go to Login?", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 10)
-        button.contentHorizontalAlignment = .center
-        button.tintColor = .black
         return button
     }()
 
@@ -88,35 +73,35 @@ class RegistrationView: UIView {
     private func style() {
         
         backgroundColor = .white
+        
+        let user = Auth.auth().currentUser
+        emailField.text = user?.email
     }
     
     private func configureUI() {
         
         addSubview(fieldStack)
-        addSubview(buttonsStack)
+        addSubview(saveButton)
         
-        fieldStack.addArrangedSubview(registrationLabel)
+        fieldStack.addArrangedSubview(myProfileLabel)
         fieldStack.addArrangedSubview(emailField)
         fieldStack.addArrangedSubview(passwordField)
-        fieldStack.setCustomSpacing(40, after: registrationLabel)
+        fieldStack.setCustomSpacing(30, after: myProfileLabel)
         fieldStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        buttonsStack.addArrangedSubview(continueButton)
-        buttonsStack.addArrangedSubview(loginButton)
-        buttonsStack.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             fieldStack.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
             fieldStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             fieldStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            buttonsStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            buttonsStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            buttonsStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            saveButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
             emailField.heightAnchor.constraint(equalToConstant: 40),
             passwordField.heightAnchor.constraint(equalToConstant: 40),
-            continueButton.heightAnchor.constraint(equalToConstant: 40)
+            saveButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 

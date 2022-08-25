@@ -16,12 +16,23 @@ class LoginController: UIViewController {
         view = _view
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let user = Auth.auth().currentUser
+        
+        if user != nil {
+            navigationController?.pushViewController(NewsController(), animated: false)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "News App"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         _view.continueButton.addTarget(self, action: #selector(loginHandler), for: .primaryActionTriggered)
+        _view.registrationButton.addTarget(self, action: #selector(toRegistration), for: .primaryActionTriggered)
     }
     
     @objc func loginHandler() {
@@ -33,11 +44,16 @@ class LoginController: UIViewController {
                     print(e.localizedDescription)
                 } else {
                     self.navigationController?.pushViewController(NewsController(), animated: true)
+                    self._view.emailField.text = nil
+                    self._view.passwordField.text = nil
                 }
             }
         }
     }
-
+    
+    @objc func toRegistration() {
+        navigationController?.pushViewController(RegistrationController(), animated: true)
+    }
     
 }
 
