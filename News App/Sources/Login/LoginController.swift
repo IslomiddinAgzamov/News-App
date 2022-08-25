@@ -42,10 +42,12 @@ class LoginController: UIViewController {
                 guard let self = self else { return }
                 if let e = error {
                     print(e.localizedDescription)
+                    self._view.errorLabel.isHidden = false
                 } else {
                     self.navigationController?.pushViewController(NewsController(), animated: true)
                     self._view.emailField.text = nil
                     self._view.passwordField.text = nil
+                    self._view.errorLabel.isHidden = true
                 }
             }
         }

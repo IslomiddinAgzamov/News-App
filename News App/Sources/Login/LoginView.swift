@@ -48,10 +48,18 @@ class LoginView: UIView {
         return field
     }()
     
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Incorrect email or password"
+        label.textColor = .red
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        return label
+    }()
+    
     let buttonsStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 5
+        stack.spacing = 8
         return stack
     }()
     
@@ -68,9 +76,9 @@ class LoginView: UIView {
     let registrationButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Go to Registration?", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 10)
+        button.titleLabel?.font = .systemFont(ofSize: 12)
         button.contentHorizontalAlignment = .center
-        button.tintColor = .black
+        button.tintColor = .systemBlue
         return button
     }()
 
@@ -88,6 +96,7 @@ class LoginView: UIView {
     private func style() {
         
         backgroundColor = .white
+        errorLabel.isHidden = true
     }
     
     private func configureUI() {
@@ -98,6 +107,7 @@ class LoginView: UIView {
         fieldStack.addArrangedSubview(loginLabel)
         fieldStack.addArrangedSubview(emailField)
         fieldStack.addArrangedSubview(passwordField)
+        fieldStack.addArrangedSubview(errorLabel)
         fieldStack.setCustomSpacing(40, after: loginLabel)
         fieldStack.translatesAutoresizingMaskIntoConstraints = false
         

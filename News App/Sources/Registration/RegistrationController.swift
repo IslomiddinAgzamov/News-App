@@ -32,10 +32,12 @@ class RegistrationController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { _, error in
                 if let e = error {
                     print(e.localizedDescription)
+                    self._view.errorLabel.isHidden = false
                 } else {
                     self.navigationController?.pushViewController(NewsController(), animated: true)
                     self._view.emailField.text = nil
                     self._view.passwordField.text = nil
+                    self._view.errorLabel.isHidden = true
                 }
             }
         }
