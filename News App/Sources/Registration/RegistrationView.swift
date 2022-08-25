@@ -38,7 +38,7 @@ class RegistrationView: UIView {
     
     let passwordField: UITextField = {
         let field = UITextField()
-        field.placeholder = "Password"
+        field.placeholder = "Create Password"
         field.isSecureTextEntry = true
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: field.frame.height))
         field.leftViewMode = .always
