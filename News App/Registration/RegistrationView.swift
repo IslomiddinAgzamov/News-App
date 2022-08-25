@@ -67,7 +67,7 @@ class RegistrationView: UIView {
     
     let registrationButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Go to Registration?", for: .normal)
+        button.setTitle("Go to Login?", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 10)
         button.contentHorizontalAlignment = .center
         button.tintColor = .black

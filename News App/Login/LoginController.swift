@@ -32,7 +32,7 @@ class LoginController: UIViewController {
                 if let e = error {
                     print(e.localizedDescription)
                 } else {
-                    self.navigationController?.pushViewController(ViewController(), animated: true)
+                    self.navigationController?.pushViewController(NewsController(), animated: true)
                 }
             }
         }
