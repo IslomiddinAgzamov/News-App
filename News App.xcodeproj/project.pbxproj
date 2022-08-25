@@ -82,15 +82,10 @@
 		C0D0B9C628B53360001F4E5B /* News App */ = {
 			isa = PBXGroup;
 			children = (
-				C0D0B9C728B53360001F4E5B /* AppDelegate.swift */,
-				C0D0B9C928B53360001F4E5B /* SceneDelegate.swift */,
-				C0D0B9F628B6375F001F4E5B /* APICaller.swift */,
-				C0D0B9FB28B7323A001F4E5B /* Settings */,
-				C0D0B9ED28B62B08001F4E5B /* News */,
-				C0D0B9E628B55DE5001F4E5B /* Registration */,
-				C0D0B9E028B54FA7001F4E5B /* Login */,
-				C0D0B9D028B53363001F4E5B /* Assets.xcassets */,
-				C0D0B9D228B53363001F4E5B /* LaunchScreen.storyboard */,
+				C0D0BA0428B749C0001F4E5B /* Api */,
+				C0D0BA0328B749AF001F4E5B /* App */,
+				C0D0BA0128B74953001F4E5B /* Sources */,
+				C0D0BA0228B74981001F4E5B /* Resources */,
 				C0D0B9D528B53363001F4E5B /* Info.plist */,
 				C0D0B9DB28B53BC5001F4E5B /* GoogleService-Info.plist */,
 			);
@@ -158,6 +153,43 @@
 				C0D0B9FE28B7327E001F4E5B /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		C0D0BA0128B74953001F4E5B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C0D0B9FB28B7323A001F4E5B /* Settings */,
+				C0D0B9ED28B62B08001F4E5B /* News */,
+				C0D0B9E628B55DE5001F4E5B /* Registration */,
+				C0D0B9E028B54FA7001F4E5B /* Login */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C0D0BA0228B74981001F4E5B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C0D0B9D028B53363001F4E5B /* Assets.xcassets */,
+				C0D0B9D228B53363001F4E5B /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C0D0BA0328B749AF001F4E5B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C0D0B9C728B53360001F4E5B /* AppDelegate.swift */,
+				C0D0B9C928B53360001F4E5B /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C0D0BA0428B749C0001F4E5B /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				C0D0B9F628B6375F001F4E5B /* APICaller.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
